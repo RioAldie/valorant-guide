@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import zIndex from '@mui/material/styles/zIndex';
 
 const WeaponCard = (props) => {
   const { image, skin } = props;
@@ -8,6 +9,7 @@ const WeaponCard = (props) => {
         width: '1000px',
         height: '300px',
         bgcolor: '#FF4655',
+        marginTop: '100px',
       }}>
       <Box
         sx={{
@@ -19,12 +21,15 @@ const WeaponCard = (props) => {
           mt: '-10px',
           ml: '-10px',
           position: 'absolute',
+          zIndex: '10',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}>
         <img
           src={skin != undefined ? skin : image}
           alt=""
-          width={800}
-          height={200}
+          style={{ zIndex: '1000' }}
         />
       </Box>
     </Box>

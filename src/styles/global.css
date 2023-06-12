@@ -115,3 +115,51 @@ a {
   right: 30px;
   z-index: 10000;
 }
+.weapon-stat {
+  width: 100px;
+  height: 80px;
+  background: #ece8e1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: -5px;
+  margin-top: -5px;
+}
+.weapon-stat-bg {
+  width: 100px;
+  height: 80px;
+  background: #ff4655;
+
+  position: relative;
+}
+.weapon-stat p {
+  font-family: 'Oswald';
+
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+.weapon-stat h5 {
+  font-family: 'Oswald';
+  font-size: 40px;
+  font-weight: 600;
+  color: #ff4655;
+  margin: 0;
+}
+.weapon-cube {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  background-color: #ff4655;
+  animation: cubeanimate 3s infinite;
+}
+@keyframes cubeanimate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -6,6 +6,7 @@ import AgentsSidebar from './Agents/Agents.sidebar';
 import SlideSkin from './components/SlideSkin';
 import WeaponCard from './components/WeaponCard';
 import WeaponSidebar from './components/Weapon.sidebar';
+import WeaponDetail from './components/Weapon.detail';
 
 const WeaponPage = () => {
   const [dataWeapons, setDataWeapons] = useState();
@@ -60,6 +61,9 @@ const WeaponPage = () => {
                 if (weapon.uuid === weaponActive)
                   return (
                     <>
+                      {weapon.displayName != 'Melee' && (
+                        <WeaponDetail props={weapon} />
+                      )}
                       <WeaponCard
                         image={weapon.displayIcon}
                         skin={skin}
