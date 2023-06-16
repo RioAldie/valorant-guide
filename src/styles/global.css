@@ -10,6 +10,7 @@ a {
   position: absolute;
   top: 151px;
   left: 170px;
+  animation: cubeanimate 1s infinite;
 }
 .decor-2 {
   width: 50px;
@@ -26,6 +27,7 @@ a {
   height: 13px;
   background-color: #ff4655;
   position: absolute;
+  animation: cubeanimate 4s infinite;
 }
 .cube-1 {
   top: 151px;
@@ -161,5 +163,16 @@ a {
   }
   to {
     opacity: 1;
+  }
+}
+.help-box {
+  animation: helpmove 3s;
+}
+@keyframes helpmove {
+  from {
+    top: 300px;
+  }
+  to {
+    top: 400px;
   }
 }

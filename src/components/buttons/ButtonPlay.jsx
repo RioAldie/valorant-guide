@@ -1,14 +1,15 @@
 import { Box, Button } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const btndefault = {
-  backgroundColor: '#fff',
+  backgroundColor: '#ff4655',
   borderRadius: '1px',
   width: '120px',
   height: '30px',
-  fontSize: '18px',
+  fontSize: '12px',
   fontWeight: '600',
-  color: '#000',
+  color: '#fff',
   '&:hover': {
     color: '#fff',
     bgcolor: '#ff4655',
@@ -28,10 +29,12 @@ const boxdefault = {
 };
 const ButtonPlay = () => {
   return (
-    <Box sx={boxdefault}>
-      {' '}
-      <Button sx={btndefault}>Play</Button>
-    </Box>
+    <Link to={'/agents'}>
+      <Box sx={boxdefault}>
+        {' '}
+        <Button sx={btndefault}>start</Button>
+      </Box>
+    </Link>
   );
 };
 

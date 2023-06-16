@@ -2,25 +2,37 @@ import React, { useEffect, useState } from 'react';
 import LayoutHome from './components/layout/layout.home';
 import { Box, Grid } from '@mui/material';
 import axios from 'axios';
-import AgentsSidebar from './Agents/Agents.sidebar';
 import SlideSkin from './components/SlideSkin';
 import WeaponCard from './components/WeaponCard';
 import WeaponSidebar from './components/Weapon.sidebar';
 import WeaponDetail from './components/Weapon.detail';
+import Loading from './components/Loading';
+import Error from './components/Error';
+import Helper from './components/Helper';
 
+const info = {
+  title: 'Arsenal',
+  content: '',
+};
 const WeaponPage = () => {
   const [dataWeapons, setDataWeapons] = useState();
   const [weaponActive, setWeaponActive] = useState(
     '63e6c2b6-4a8e-869c-3d4c-e38355226584'
   );
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [skin, setSkin] = useState();
   const getDataFromAPI = async () => {
+    setIsLoading(true);
     const data = await axios
       .get('https://valorant-api.com/v1/weapons')
       .then((res) => {
         return res.data;
       })
+      .finally(() => setIsLoading(false))
       .catch((err) => {
+        setIsLoading(false);
+        setIsError(true);
         console.log(err);
       });
 
@@ -47,7 +59,9 @@ const WeaponPage = () => {
           alignItems: 'center',
           bgcolor: '#0F1823',
         }}>
-        {dataWeapons != undefined ? (
+        {isLoading && <Loading />}
+        {isError && <Error />}
+        {!isLoading && !isError && dataWeapons !== undefined && (
           <>
             <Grid item xs={12} md={3}>
               <WeaponSidebar
@@ -69,15 +83,17 @@ const WeaponPage = () => {
                         skin={skin}
                       />{' '}
                       <SlideSkin data={weapon} setSkin={setSkin} />
+                      <Helper
+                        title={info.title}
+                        content={info.content}
+                      />
                     </>
                   );
               })}
             </Grid>
           </>
-        ) : (
-          <p>Data Kosong</p>
-        )}
-      </Grid>
+        )}{' '}
+      </Grid>{' '}
     </LayoutHome>
   );
 };

@@ -9,6 +9,7 @@ import Home from './Home/Home';
 import WeaponPage from './WeaponPage';
 import MapPage from './MapPage';
 import RouteCtxProvider from './context/RouteCtx';
+import EsportPage from './EsportPage';
 
 let theme = createTheme({
   palette: {
@@ -40,6 +41,7 @@ function App() {
               <Route path="/agents" element={<ListAgents />} />
               <Route path="/weapons" element={<WeaponPage />} />
               <Route path="/maps" element={<MapPage />} />
+              <Route path="/esports" element={<EsportPage />} />
               {/* <Route path="/agent/:id" element={<Agent />} /> */}
             </Routes>
           </BrowserRouter>

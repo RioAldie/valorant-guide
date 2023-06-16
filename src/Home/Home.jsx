@@ -4,19 +4,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LayoutHome from '../components/layout/layout.home';
 import '../styles/global.css';
-
-const ButtonPrimary = styled(Button)({
-  backgroundColor: '#fff',
-  borderRadius: '1px',
-  width: '300px',
-  height: '60px',
-  fontSize: '18px',
-  fontWeight: '600',
-  color: '#000',
-  '&:hover': {
-    color: '#fff',
-  },
-});
+import Footer from '../components/layout/Footer';
 
 const Home = () => {
   const getDataFromAPI = async () => {
@@ -111,28 +99,31 @@ const Home = () => {
               },
               mt: '10px',
             }}>
-            <Button
-              sx={{
-                width: '300px',
-                height: '50px',
-                fontWeight: '700',
-                color: '#fff',
-                bgcolor: '#ff4655',
-                transition: ' 0.6s',
-                borderRadius: '0',
-                '&:hover': {
-                  bgcolor: '#fff',
-                  color: '#000',
-                },
-              }}>
-              START
-            </Button>
+            <Link to={'/agents'}>
+              <Button
+                sx={{
+                  width: '300px',
+                  height: '50px',
+                  fontWeight: '700',
+                  color: '#fff',
+                  bgcolor: '#ff4655',
+                  transition: ' 0.6s',
+                  borderRadius: '0',
+                  '&:hover': {
+                    bgcolor: '#fff',
+                    color: '#000',
+                  },
+                }}>
+                START
+              </Button>
+            </Link>
           </Box>
         </Box>
         <Box sx={{ mt: '15px' }}>
           <img src="/images/vlr-thumbnail.png" alt="" />
         </Box>
       </Grid>
+      <Footer />
     </LayoutHome>
   );
 };
